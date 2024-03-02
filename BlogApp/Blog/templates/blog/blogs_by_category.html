@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+    <div class="container" >
+        <div class="row">
+            <div class="col-md-4" >
+                <div class="list-group" id="categories" style="margin-top: 130px; margin-right:50px">
+
+                    {% for item in categories %}
+
+                        {% if item.slug == slug %}
+                            <a href="{% url 'category' item.slug%}" class="list-group-item list-group-item-action active">{{item.name}}</a>
+                        {% else %}
+                            <a href="{% url 'category' item.slug%}" class="list-group-item list-group-item-action">{{item.name}}</a>
+                        {% endif %}
+                        
+                    {% endfor %}
+
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                    {% for item in categories %}
+
+                        {% if item.slug == slug %}
+                            <h3 style="text-align: center; margin-top:30px">{{item.name}}</h3>
+                            <hr>
+                        {% endif %}
+
+                    {% endfor %}
+                    
+                
+                {% if blogs|length > 0 %}
+                    {% for item in blogs %}
+
+                        {%include 'blog/partials/_blogCard.html'%}
+
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning" role="alert" style="text-align:center">
+                        BLOG YOK
+                    </div>                
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+    
+
+{% endblock %}  

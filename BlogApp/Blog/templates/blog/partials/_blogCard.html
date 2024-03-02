@@ -1,0 +1,18 @@
+{% load static %}
+
+<div class="card mb-3 ms-5" style="max-width: 950px; height: auto;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <a href="{% url 'details' item.slug %}">
+                <img src="{% static 'blog/img/'|add:item.image %}" class="img-fluid rounded-start" alt="...">
+            </a>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">{{ item.description|safe }}</p>
+                <a class="btn btn-warning" href="{% url 'details' item.slug %}">Visit</a>
+            </div>
+        </div>
+    </div>
+</div>

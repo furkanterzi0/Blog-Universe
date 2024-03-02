@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; color:rgb(82, 12, 45)" class="mt-4">EN ÇOK TIKLANANLAR</h2>
+<hr>
+<div style="display: flex; justify-content: center; flex-wrap:wrap; margin-top: 50px; margin-right: 30px;">
+
+    {% for item in blogs%}
+        {% include 'blog/partials/_blogCard.html'%}
+    {% endfor %}    
+
+</div>
+    
+
+{% endblock %}  
